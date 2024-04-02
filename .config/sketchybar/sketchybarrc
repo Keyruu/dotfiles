@@ -9,6 +9,8 @@ PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
+sketchybar --add event window_focused
+
 sketchybar --bar \
     height=32 \
     color=0x00000000 \
@@ -17,7 +19,7 @@ sketchybar --bar \
     padding_left=23 \
     padding_right=23 \
     notch_width=188 \
-    display=all
+    display=main
 
 # Alternatiive background colors
 # label.color=0xffffffff
@@ -53,7 +55,7 @@ sketchybar --add item current_space left \
     icon.color=0xff24273a \
     label.drawing=off \
     script="$PLUGIN_SHARED_DIR/current_space.sh" \
-    --subscribe current_space space_change mouse.clicked
+    --subscribe current_space front_app_switched space_change mouse.clicked
 
 sketchybar --add item front_app left \
     --set front_app \
@@ -87,7 +89,7 @@ sketchybar --add bracket front_app_bracket \
     front_app \
     front_app.separator \
     front_app.name \
-    --subscribe front_app front_app_switched
+    --subscribe front_app window_focused
 
 sketchybar -m --add item yabai_mode q \
               --set yabai_mode update_freq=3 \

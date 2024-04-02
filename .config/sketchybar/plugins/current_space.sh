@@ -1,31 +1,34 @@
 #!/usr/bin/env zsh
 
 update_space() {
-    SPACE_ID=$(echo "$INFO" | jq -r '."display-1"')
+    SPACE_ID=$(yabai -m query --spaces --space | jq -r '.index')
 
     case "$SPACE_ID" in
-    "1")
+    "7")
         ICON="www"
         ;;
-    "2")
+    "8")
         ICON="dev"
         ;;
-    "3")
+    "9")
         ICON="cmd"
         ;;
-    "4")
+    "1")
         ICON="mail"
         ;;
-    "5")
+    "2")
         ICON="chat"
         ;;
-    "6")
+    "3")
         ICON="note"
         ;;
-    "7")
+    "4")
         ICON="music"
         ;;
-    "8")
+    "5")
+        ICON="file"
+        ;;
+    "6")
         ICON="priv"
         ;;
     *)
