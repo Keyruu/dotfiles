@@ -128,5 +128,8 @@ eval "$(starship init zsh)"
 
 eval "$(fzf --zsh)"
 
+eval "$(gh copilot alias -- zsh)"
+
+# Bind keys
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
