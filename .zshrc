@@ -1,9 +1,29 @@
-#export ZSH="/Users/lro/.oh-my-zsh"
+export ZSH="/Users/lro/.oh-my-zsh"
 
-#plugins=(helm git npm brew macos zsh-autosuggestions docker docker-compose kubectl zsh-z)
+plugins=(
+  helm
+  git
+  forgit
+  npm
+  brew
+  macos
+  zsh-autosuggestions
+  docker
+  docker-compose
+  kubectl
+  fast-syntax-highlighting
+  zsh-vi-mode
+  nvm
+  zsh-nvm
+  jenv
+  1password
+  kubectx
+  zsh-history-substring-search
+  you-should-use
+)
 
-#source $ZSH/oh-my-zsh.sh
-#
+source $ZSH/oh-my-zsh.sh
+
 setopt inc_append_history
 setopt share_history
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -31,10 +51,6 @@ alias createkh='tmp_script=$(mktemp) && curl -sSL -o "${tmp_script}" https://raw
 alias brewx86='eval "$(/usr/local/bin/brew shellenv)"'
 
 alias brewup='brew update && brew upgrade && brew cleanup && sketchybar --trigger brew_update'
-
-#alias docker="nerdctl"
-
-#source /Users/lro/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export KUBECONFIG=$KUBECONFIG:$HOME/.kube/michael.kubeconfig:$HOME/.kube/surfuniverse.kubeconfig:$HOME/.kube/galaxy.kubeconfig:$HOME/.kube/config:$HOME/.kube/niflheim.kubeconfig:$HOME/.kube/bad.kubeconfig:$HOME/.kube/bmw.kubeconfig:$HOME/.kube/yggdrasil.yaml:$HOME/.kube/aws.kubeconfig:$HOME/.kube/hive.kubeconfig:$HOME/.kube/pdarobe.kubeconfig:$HOME/.kube/meadow.kubeconfig
 export KUBECONFIG=$HOME/.kube/traversetown.kubeconfig:$KUBECONFIG
@@ -84,74 +100,6 @@ export PATH="/Users/lro/.rd/bin:$PATH"
 export BUN_INSTALL="/Users/lro/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-### Added by Zinit's installer
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-        print -P "%F{33} %F{34}Installation successful.%f%b" || \
-        print -P "%F{160} The clone has failed.%f%b"
-fi
-
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-export DISABLE_FZF_AUTO_COMPLETION=true
-
-# OMZ plugins and libs
-# install pkgfile and run `pkgfile --update` for command-not-found plugin to work
-zinit wait lucid for \
-    OMZL::clipboard.zsh \
-    OMZL::compfix.zsh \
-    OMZL::correction.zsh \
-    OMZL::directories.zsh \
-    OMZL::key-bindings.zsh \
-    OMZL::completion.zsh \
-    OMZP::command-not-found \
-    OMZP::colored-man-pages \
-    OMZP::fzf \
-    OMZP::jenv \
-    OMZL::nvm.zsh
-
-
-# extra completion
-zinit wait lucid for \
-  as"completion" \
-    https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker \
-  as"completion" \
-    OMZP::docker-compose/_docker-compose
-
-#zinit load agkozak/zsh-z
-
-zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
-
-# basic setup
-zinit wait lucid for \
-  atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-  blockf \
-  atpull"zinit creinstall -q .; zinit cclear" \
-    zsh-users/zsh-completions \
-  atinit"ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20" \
-  atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
-
-# extra plugins
-
-# starship.rs prompt
-zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
-zinit load starship/starship
-
-# get nice ls colors
-zinit ice as"command" from"gh-r" mv"*-x86_64-unknown-linux-gnu/vivid -> vivid" bpick"*-x86_64-unknown-linux-gnu.tar.gz" pick"vivid"
-zinit load sharkdp/vivid
-# choose ls color scheme here
-# `vivid themes` to see what's available)
-THEME=snazzy
-#export LS_COLORS="$(vivid generate $THEME)"
-
 export PATH="/Users/lro/caas/bin:$PATH"
 export PATH="/Users/lro/.krew/bin:$PATH"
 
@@ -171,14 +119,14 @@ export EDITOR=nvim
 # Should your editor deal with streamed vs on disk files differently, also set...
 export K9S_EDITOR=nvim
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion 
-
 eval "$(zoxide init zsh)"
+
 export PATH="/usr/local/opt/game-porting-toolkit/bin:$PATH"
 export PATH="/Users/lro/.local/bin:$PATH"
+
+eval "$(starship init zsh)"
+
+eval "$(fzf --zsh)"
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
