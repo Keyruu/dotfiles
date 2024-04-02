@@ -51,17 +51,17 @@ yabai -m config window_gap                   0
 
 # ===== Rules ==================================
 
-yabai -m rule --add label="Arc" app="^Arc$" space=1
-yabai -m rule --add label="IntelliJ" app="^IntelliJ IDEA.*" space=2
-yabai -m rule --add label="Warp" app="^Warp$" space=^3
-yabai -m rule --add label="Outlook" app="^Microsoft Outlook$" space=^4
-yabai -m rule --add label="Teams" app="^Microsoft Teams (work or school)$" space=^5
-yabai -m rule --add label="Slack" app="^Slack$" space=^5
-yabai -m rule --add label="Obsidian" app="^Obsidian$" space=^6
-yabai -m rule --add label="Heynote" app="^Heynote$" space=^6
-yabai -m rule --add label="Spotify" app="^Spotify$" space=^7
-yabai -m rule --add label="Finder" app="^Finder$" space=^7
-yabai -m rule --add label="Messages" app="^Messages$" space=^8
+yabai -m rule --add label="Arc" app="^Arc$" space=^7
+yabai -m rule --add label="IntelliJ" app="^IntelliJ IDEA.*" space=^8
+yabai -m rule --add label="Warp" app="^Warp$" space=^9
+yabai -m rule --add label="Outlook" app="^Microsoft Outlook$" space=^1
+yabai -m rule --add label="Teams" app="^Microsoft Teams (work or school)$" space=^2
+yabai -m rule --add label="Slack" app="^Slack$" space=^2
+yabai -m rule --add label="Obsidian" app="^Obsidian$" space=^3
+yabai -m rule --add label="Heynote" app="^Heynote$" space=^3
+yabai -m rule --add label="Spotify" app="^Spotify$" space=^4
+yabai -m rule --add label="Finder" app="^Finder$" space=^5
+yabai -m rule --add label="Messages" app="^Messages$" space=^6
 
 yabai -m signal --add label="test" event=window_created action="$HOME/.config/yabai/changeSpaceAfterCreation.sh"
 
