@@ -5,6 +5,7 @@ source "$HOME/.config/sketchybar/colors.sh"
 COUNT=$(brew outdated | wc -l | tr -d ' ')
 
 COLOR=$RED
+DRAWING="on"
 
 case "$COUNT" in
   [3-5][0-9]) COLOR=$ORANGE
@@ -15,7 +16,8 @@ case "$COUNT" in
   ;;
   0) COLOR=$GREEN
      COUNT=􀆅
+     DRAWING="off"
   ;;
 esac
 
-sketchybar --set $NAME label=$COUNT icon.color=$COLOR
+sketchybar --set $NAME label=$COUNT icon.color=$COLOR drawing=$DRAWING

@@ -9,6 +9,8 @@ PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
+source "$SKETCHYBAR_CONFIG/colors.sh"
+
 sketchybar --add event window_focused
 
 sketchybar --bar \
@@ -148,6 +150,12 @@ sketchybar  --add   item outlook right \
                     script="$PLUGIN_SHARED_DIR/app-notif.sh 'Microsoft Outlook' 󰴢" \
                     icon.font.size=18 \
            --subscribe outlook system_woke
+
+sketchybar -m --add item meeting right \
+              --set meeting script="$PLUGIN_SHARED_DIR/meeting.sh" \
+                    icon= \
+                    icon.color=$GREEN \
+                    update_freq=60
 
 # osascript -e 'quit app "Rectangle"'
 # open -a Rectangle

@@ -4,6 +4,7 @@ ICON_PADDING_RIGHT=5
 WINDOW=$(yabai -m query --windows --window)
 INFO=$(echo $WINDOW | jq -r '.app')
 WINDOW_TITLE=$(echo $WINDOW | jq -r '.title')
+TITLE="$INFO | $WINDOW_TITLE"
 
 case $INFO in
 "Code")
@@ -81,13 +82,9 @@ esac
 
 # W I N D O W  T I T L E 
 
-if [[ ${#WINDOW_TITLE} -gt 50 ]]; then
-  WINDOW_TITLE="$(echo "$WINDOW_TITLE" | cut -c 1-50)…"
+if [[ ${#TITLE} -gt 60 ]]; then
+  TITLE="$(echo "$TITLE" | cut -c 1-60)…"
 fi
 
 sketchybar --set $NAME icon=$ICON icon.padding_right=$ICON_PADDING_RIGHT
-if [[ WINDOW_TITLE == "" ]]; then
-  sketchybar --set $NAME.name label="$INFO"
-else
-  sketchybar --set $NAME.name label="$INFO | $WINDOW_TITLE"
-fi
+sketchybar --set $NAME.name label="$TITLE"

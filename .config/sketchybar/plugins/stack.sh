@@ -4,7 +4,6 @@
 CURRENT=$(yabai -m query --windows --window | jq '.["stack-index"]')
 if [[ $CURRENT -eq 0 ]]; then
   sketchybar -m --set stack label="" \
-                --set stack_sep drawing=off \
                 --set stack drawing=off
   exit 0
 fi
@@ -15,7 +14,6 @@ LAST=$(yabai -m query --windows --window stack.last | jq '.["stack-index"]')
 if [[ $LAST -gt 10 ]]; then
   sketchybar -m --set stack label.font="JetBrainsMono Nerd Font:Bold:16.0" \
                 --set stack label=$(printf "[%s/%s]" "$CURRENT" "$LAST") \
-                --set stack_sep drawing=on \
                 --set stack drawing=on
   exit 0
 else
@@ -40,5 +38,4 @@ done
 
 # Display Indicator
 sketchybar -m --set stack label=$(printf "%s   " ${dots[@]}) \
-              --set stack_sep drawing=on \
               --set stack drawing=on

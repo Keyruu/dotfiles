@@ -124,6 +124,9 @@ zinit wait lucid for \
 
 #zinit load agkozak/zsh-z
 
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
 # basic setup
 zinit wait lucid for \
   atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
