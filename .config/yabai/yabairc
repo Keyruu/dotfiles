@@ -18,9 +18,10 @@
 #!/usr/bin/env sh
 
 yabai -m signal --add event=window_focused action="sketchybar --trigger window_focused"
+yabai -m signal --add event=window_title_changed action="sketchybar --trigger window_title_changed"
 
 # bar settings
-yabai -m config external_bar                 main:30:0
+yabai -m config external_bar                 all:40:10
 
 # global settings
 yabai -m config mouse_follows_focus          on
@@ -32,10 +33,9 @@ yabai -m config window_topmost               off
 yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
 yabai -m config window_shadow                off
-yabai -m config window_border                on
 
-yabai -m config active_window_opacity        1.0
-yabai -m config normal_window_opacity        0.90
+#yabai -m config active_window_opacity        1.0
+#yabai -m config normal_window_opacity        0.90
 yabai -m config split_ratio                  0.50
 yabai -m config auto_balance                 off
 
@@ -46,10 +46,11 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config bottom_padding               0
-yabai -m config left_padding                 0
-yabai -m config right_padding                0
-yabai -m config window_gap                   0
+#yabai -m config top_padding                  10
+#yabai -m config bottom_padding               10
+yabai -m config left_padding                 10
+yabai -m config right_padding                10
+yabai -m config window_gap                   10
 
 # ===== Rules ==================================
 
@@ -66,7 +67,7 @@ yabai -m rule --add label="Spotify" app="^Spotify$" space=^4
 yabai -m rule --add label="Path Finder" app="^Path Finder$" space=^5
 yabai -m rule --add label="Messages" app="^Messages$" space=^6
 
-yabai -m signal --add label="test" event=window_created action="$HOME/.config/yabai/changeSpaceAfterCreation.sh"
+yabai -m signal --add label="Change Space after launch" event=window_created action="$HOME/.config/yabai/changeSpaceAfterCreation.sh"
 
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="System Settings" app="^System Settings$" title=".*" manage=off
