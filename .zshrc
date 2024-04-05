@@ -1,3 +1,5 @@
+cat $HOME/.banner
+
 export ZSH="/Users/lro/.oh-my-zsh"
 
 plugins=(

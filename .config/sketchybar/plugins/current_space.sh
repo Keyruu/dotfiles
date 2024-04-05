@@ -5,31 +5,31 @@ update_space() {
 
     case "$SPACE_ID" in
     "7")
-        ICON="www"
+        ICON="7 | www"
         ;;
     "8")
-        ICON="dev"
+        ICON="8 | dev"
         ;;
     "9")
-        ICON="cmd"
+        ICON="9 | cmd"
         ;;
     "1")
-        ICON="mail"
+        ICON="1 | mail"
         ;;
     "2")
-        ICON="chat"
+        ICON="2 | chat"
         ;;
     "3")
-        ICON="note"
+        ICON="3 | note"
         ;;
     "4")
-        ICON="music"
+        ICON="4 | music"
         ;;
     "5")
-        ICON="file"
+        ICON="5 | file"
         ;;
     "6")
-        ICON="priv"
+        ICON="6 | priv"
         ;;
     *)
         ICON=$SPACE_ID

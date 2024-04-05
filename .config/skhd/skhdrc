@@ -15,19 +15,27 @@ shift + alt - j : yabai -m window --swap south
 shift + alt - k : yabai -m window --swap north
 shift + alt - l : yabai -m window --swap east
 
+# Move focus between spaces
+alt - 1 : $HOME/.config/yabai/focusSpace.sh 1
+alt - 2 : $HOME/.config/yabai/focusSpace.sh 2
+alt - 3 : $HOME/.config/yabai/focusSpace.sh 3
+alt - 4 : $HOME/.config/yabai/focusSpace.sh 4
+alt - 5 : $HOME/.config/yabai/focusSpace.sh 5
+alt - 6 : $HOME/.config/yabai/focusSpace.sh 6
+alt - 7 : $HOME/.config/yabai/focusSpace.sh 7
+alt - 8 : $HOME/.config/yabai/focusSpace.sh 8
+alt - 9 : $HOME/.config/yabai/focusSpace.sh 9
+
 # Move focus container to workspace
-shift + alt - m : yabai -m window --space last; yabai -m space --focus last
-shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
-shift + alt - n : yabai -m window --space next; yabai -m space --focus next
-shift + alt - 1 : yabai -m window --space 1; skhd --key "alt - 1"
-shift + alt - 2 : yabai -m window --space 2; skhd --key "alt - 2"
-shift + alt - 3 : yabai -m window --space 3; skhd --key "alt - 3"
-shift + alt - 4 : yabai -m window --space 4; skhd --key "alt - 4"
-shift + alt - 5 : yabai -m window --space 5; skhd --key "alt - 5"
-shift + alt - 6 : yabai -m window --space 6; skhd --key "alt - 6"
-shift + alt - 7 : yabai -m window --space 7; skhd --key "alt - 7"
-shift + alt - 8 : yabai -m window --space 8; skhd --key "alt - 8"
-shift + alt - 9 : yabai -m window --space 9; skhd --key "alt - 9"
+shift + alt - 1 : $HOME/.config/yabai/sendToSpace.sh 1
+shift + alt - 2 : $HOME/.config/yabai/sendToSpace.sh 2
+shift + alt - 3 : $HOME/.config/yabai/sendToSpace.sh 3
+shift + alt - 4 : $HOME/.config/yabai/sendToSpace.sh 4
+shift + alt - 5 : $HOME/.config/yabai/sendToSpace.sh 5
+shift + alt - 6 : $HOME/.config/yabai/sendToSpace.sh 6
+shift + alt - 7 : $HOME/.config/yabai/sendToSpace.sh 7
+shift + alt - 8 : $HOME/.config/yabai/sendToSpace.sh 8
+shift + alt - 9 : $HOME/.config/yabai/sendToSpace.sh 9
 
 # Resize windows
 lctrl + alt - h : yabai -m window --resize left:-50:0; \

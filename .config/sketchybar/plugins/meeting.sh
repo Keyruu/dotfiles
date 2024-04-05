@@ -55,7 +55,13 @@ if [[ -z $closest_event_title ]]; then
   exit 0
 fi
 
-echo "$closest_event_start_time $closest_event_title"
-sketchybar -m --set meeting label="$closest_event_start_time $closest_event_title" \
+MEETING="$closest_event_start_time $closest_event_title"
+
+# if meeting is longer than 25 characters, truncate it with ellipsis
+if [ ${#MEETING} -gt 25 ]; then
+  MEETING="${MEETING:0:25}…"
+fi
+
+sketchybar -m --set meeting label="$MEETING" \
               --set meeting drawing=on
 
