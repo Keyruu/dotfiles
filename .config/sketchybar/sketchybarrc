@@ -13,6 +13,7 @@ source "$SKETCHYBAR_CONFIG/colors.sh"
 
 sketchybar --add event window_focused
 sketchybar --add event window_title_changed
+sketchybar --add event yabai_change
 
 sketchybar --bar \
     height=32 \
@@ -100,14 +101,14 @@ sketchybar -m --add item yabai_mode q \
               --set yabai_mode click_script="$PLUGIN_SHARED_DIR/yabai_mode_click.sh" \
               label.padding_right=10 \
               label.font="$FONT_FACE:Bold:15.0" \
-              --subscribe yabai_mode space_change window_focus front_app_switched title_change
+              --subscribe yabai_mode yabai_change space_change window_focus front_app_switched window_title_changed
 
 # S T A C K  I N D I C A T O R 
 sketchybar -m --add item stack q \
               --set stack script="$PLUGIN_SHARED_DIR/stack.sh" \
               label.padding_right=10 \
               label.font="$FONT_FACE:Bold:15.0" \
-              --subscribe stack window_focus yabai_mode front_app_switched space_change title_change \
+              --subscribe stack window_focused yabai_change front_app_switched space_change window_title_changed \
               --set stack drawing=off \
               --set stack update_freq=0
 

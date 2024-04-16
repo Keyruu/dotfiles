@@ -1,5 +1,5 @@
-ctrl - e : yabai -m space --layout bsp
-ctrl - s : yabai -m space --layout stack
+ctrl - e : yabai -m space --layout bsp && sketchybar --trigger yabai_change
+ctrl - s : yabai -m space --layout stack && sketchybar --trigger yabai_change
 
 # Navigation
 alt - h : yabai -m window --focus west
@@ -76,7 +76,9 @@ shift + alt - space : \
 shift + lctrl + alt - r : \
     /usr/bin/env osascript <<< \
         "display notification \"Restarting Yabai\" with title \"Yabai\""; \
-    yabai --restart-service
+    yabai --restart-service && sleep 2 && $HOME/.config/yabai/default.sh
+
+shift + lctrl + alt - d : $HOME/.config/yabai/default.sh
 
 # Make window native fullscreen
 alt - f         : yabai -m window --toggle zoom-fullscreen

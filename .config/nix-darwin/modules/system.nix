@@ -1,5 +1,9 @@
-{ pkgs, ... }:
-
+{
+  pkgs,
+  username,
+  hostname,
+  ...
+} @ args:
   ###################################################################################
   #
   #  macOS's System configuration
@@ -11,6 +15,17 @@
   #
   ###################################################################################
 {
+  networking.hostName = hostname;
+  networking.computerName = hostname;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users."${username}" = {
+    home = "/Users/${username}";
+    description = username;
+  };
+
+  nix.settings.trusted-users = [username];
+
   system = {
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     activationScripts.postUserActivation.text = ''
@@ -28,9 +43,6 @@
         autohide = true;
         show-recents = false;  # disable recent apps
         mru-spaces = false;  # disable recent spaces
-
-        wvous-tl-corner = 2;  # top-left - Mission Control
-        wvous-tr-corner = 13;  # top-right - Lock Screen
       };
 
       # customize finder
