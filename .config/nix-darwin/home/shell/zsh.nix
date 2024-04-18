@@ -4,6 +4,10 @@
   programs.zsh = {
     enable = true;
 
+    initExtra = ''
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    '';
+
     dotDir = ".config/zsh";
     enableAutosuggestions = true;
     enableCompletion = true;
@@ -44,6 +48,7 @@
     envExtra = ''
       export PATH="''${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
       export PATH="$HOME/.cargo/bin:$PATH"
+      export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts/:$PATH"
 
       export KUBECONFIG=$HOME/.kube/config
       export KUBECONFIG=$KUBECONFIG:$HOME/.kube/galaxy.kubeconfig

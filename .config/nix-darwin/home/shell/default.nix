@@ -7,6 +7,7 @@ in {
     ./zsh.nix
     ./yazi.nix
     ./k9s.nix
+    ./alacritty.nix
   ];
 
   # add environment variables

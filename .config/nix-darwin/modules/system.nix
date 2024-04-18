@@ -71,8 +71,7 @@
         # `defaults read NSGlobalDomain "xxx"`
         "com.apple.swipescrolldirection" = false;  # enable natural scrolling(default to true)
         AppleInterfaceStyle = "Dark";  # dark mode
-        AppleKeyboardUIMode = 3;  # Mode 3 enables full keyboard control.
-        ApplePressAndHoldEnabled = true;  # enable press and hold
+        ApplePressAndHoldEnabled = false;  # enable press and hold
 
         # If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.
         # This is very useful for vim users, they use `hjkl` to move cursor.
