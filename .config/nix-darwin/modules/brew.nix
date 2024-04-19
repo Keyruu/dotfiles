@@ -282,7 +282,6 @@
       "1password-cli"
       "bruno"
       "font-hack-nerd-font"
-      "kitty"
       "macgesture"
       "notion"
       "postman"

@@ -15,8 +15,8 @@
     syntaxHighlighting.enable = false;
     historySubstringSearch = {
       enable = true;
-      searchUpKey = ["^[j" "^[[A" "$terminfo[kcuu1]"];
-      searchDownKey = ["^[k" "^[[B" "$terminfo[kcud1]"];
+      searchUpKey = ["^[j" "^[[A" "$terminfo[kcuu1]" "\eOA"];
+      searchDownKey = ["^[k" "^[[B" "$terminfo[kcud1]" "\eOB"];
     };
 
     shellAliases = {

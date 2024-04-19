@@ -7,6 +7,10 @@
     ./common.nix
     ./firefox.nix
     ./neovim.nix
+    ./yabai.nix
+    ./skhd.nix
+    ./sketchybar.nix
+    ./ideavim.nix
     ./shell
     ./programs
   ];
